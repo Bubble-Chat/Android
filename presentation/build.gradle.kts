@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.narsha.bubblechat"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.narsha.bubblechat"

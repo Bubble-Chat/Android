@@ -70,10 +70,6 @@ fun LogoImage() {
     )
 }
 
-@Composable
-fun GoogleSignInButton() {
-
-}
 
 @Preview(showBackground = true)
 @Composable
@@ -83,13 +79,6 @@ fun DefaultPreview() {
     }
 }
 
-private fun getGoogleLoginAuth(): GoogleSignInClient {
-    val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_GAMES_SIGN_IN)
-        .requestEmail()
-        // TODO(".requestIdToken(getString(gcp_id))")
-        .requestId()
-        .build()
-    return GoogleSignIn.getClient(Activity(), gso)
-}
+
 
 
