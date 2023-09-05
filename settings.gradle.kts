@@ -14,4 +14,5 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Bubblechat"
-include(":app")
+include(":presentation")
+include(":data")

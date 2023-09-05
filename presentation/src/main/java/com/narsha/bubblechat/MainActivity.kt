@@ -28,6 +28,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.narsha.bubblechat.ui.theme.BubblechatTheme
+import com.narsha.bubblechat.ui.theme.Purple
+import com.narsha.bubblechat.ui.theme.SkyBlue
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,23 +45,23 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MainScreen() {
-    val color1 = colorResource(id = R.color.skyBlue)
-    val color2 = colorResource(id = R.color.purple)
-    val brush = Brush.verticalGradient(
-        colors = listOf(
-            color1,
-            color2
-        )
-    )
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(brush),
+            .background(
+                Brush.verticalGradient(
+                    colors = listOf(
+                        SkyBlue,
+                        Purple
+                    )
+                )
+            ),
         contentAlignment = Alignment.Center
     ) {
         LogoImage()
-   }
+    }
 }
+
 @Composable
 fun LogoImage() {
     Image(
@@ -67,6 +69,7 @@ fun LogoImage() {
         contentDescription = null
     )
 }
+
 @Composable
 fun GoogleSignInButton() {
 
