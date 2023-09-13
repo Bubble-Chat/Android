@@ -6,21 +6,21 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 
 @Composable
-fun navigationDepth1() {
+fun Navigation() {
     val navController = rememberNavController()
     NavHost(
         navController = navController,
-        startDestination = Route.MAIN
+        startDestination = Route.MAIN.route
     ) {
-        composable(Route.MAIN) {
-            
+        composable(Route.MAIN.route) {
+
         }
     }
 }
 
-object Route {
-    const val MAIN = "MAIN"
-    const val START = "START"
-    const val PROFILE = "PROFILE"
-    const val
+sealed class Route(val route: String) {
+    object MAIN : Route("MAIN")
+    object START : Route("START")
+    object PROFILE : Route("PROFILE")
+
 }
