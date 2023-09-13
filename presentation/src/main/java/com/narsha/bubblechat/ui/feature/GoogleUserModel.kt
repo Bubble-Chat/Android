@@ -1,4 +1,4 @@
-package com.narsha.bubblechat.google
+package com.narsha.bubblechat.ui.feature
 
 data class GoogleUserModel(
     val name: String?,

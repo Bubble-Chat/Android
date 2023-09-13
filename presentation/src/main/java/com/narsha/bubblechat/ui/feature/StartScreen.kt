@@ -25,6 +25,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.narsha.bubblechat.R
 import com.narsha.bubblechat.ui.theme.DarkGray
 import com.narsha.bubblechat.ui.theme.PrimaryPurple
@@ -34,6 +35,7 @@ import com.narsha.bubblechat.util.dpToSp
 
 @Composable
 fun StartScreen(
+    viewModel: StartViewModel
 ) {
     Box(
         modifier = Modifier
@@ -85,5 +87,5 @@ fun StartScreen(
 @Preview(showBackground = true, backgroundColor = 0xFFFFFF)
 @Composable
 fun PreviewStartScreen() {
-    StartScreen()
+    StartScreen(hiltViewModel())
 }
