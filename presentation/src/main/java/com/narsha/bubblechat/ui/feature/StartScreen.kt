@@ -1,5 +1,10 @@
 package com.narsha.bubblechat.ui.feature
 
+import android.app.Activity
+import android.util.Log
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -26,6 +31,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.tasks.Task
 import com.narsha.bubblechat.R
 import com.narsha.bubblechat.ui.theme.DarkGray
 import com.narsha.bubblechat.ui.theme.PrimaryPurple
@@ -37,6 +45,33 @@ import com.narsha.bubblechat.util.dpToSp
 fun StartScreen(
     viewModel: StartViewModel
 ) {
+    val startForResult =
+        rememberLauncherForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
+            Log.d("dmdi",result.resultCode.toString())
+            if (result.resultCode == Activity.RESULT_OK) {
+                val intent = result.data
+                Log.d("dmdi","null")
+                if (result.data != null) {
+                    val task: Task<GoogleSignInAccount> =
+                        GoogleSignIn.getSignedInAccountFromIntent(intent)
+
+                    when {
+                        task.isSuccessful -> {
+                            Log.d("성공","성공")
+                            task.result.idToken?.let { viewModel.postIdToken(it) }
+                        }
+                        task.isComplete -> {
+                            Log.d("complete",task.result.idToken.toString())
+                        }
+                        task.isCanceled -> {
+                            Log.d("cancled","하")
+                        }
+                    }
+                }
+            }
+        }
+    val googleClient = viewModel.getGoogleClient()
+
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -57,7 +92,7 @@ fun StartScreen(
                 .height(52.dp)
                 .border(BorderStroke(1.dp, DarkGray))
                 .clickable {
-
+                    startForResult.launch(googleClient.signInIntent)
                 }
         ) {
             Row(

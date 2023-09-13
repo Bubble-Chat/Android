@@ -16,7 +16,6 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.callbackFlow
 
-const val CLIENT_KEY = "73109494168-jqgo8tpu8tsso9qr8blsbrbfsnf9s3u7.apps.googleusercontent.com"
 
 @Composable
 fun dpToSp(dp: Dp) = with(LocalDensity.current) { dp.toSp() }
