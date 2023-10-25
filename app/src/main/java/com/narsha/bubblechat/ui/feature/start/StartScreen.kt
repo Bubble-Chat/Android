@@ -53,7 +53,7 @@ fun StartScreen(
                         viewModel.postIdToken(
                             email = "wyk172899@gmail,com",
                             name = "우영기",
-                            navigation = { navigation(Route.MAIN.route) })
+                            navigation = { navigation(Route.FRIEND.route) })
                         Log.d("성공", result.result.email.toString())
 //                        result.result.email?.let { email ->
 //                            result.result.displayName?.let { name ->

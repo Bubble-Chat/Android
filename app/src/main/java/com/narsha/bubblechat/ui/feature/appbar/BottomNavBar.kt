@@ -20,9 +20,9 @@ import com.narsha.bubblechat.util.dpToSp
 import dgsw.proj.bubblechat.R
 
 sealed class BottomNavItem(val name: String, val icon: Int, val route: String) {
-    object Friend : BottomNavItem(name = "상담센터", icon = R.drawable.friend, FRIEND)
-    object Chatting : BottomNavItem(name = "홈", icon = R.drawable.chatting, CHATTING)
-    object Setting : BottomNavItem(name = "마이", icon = R.drawable.setting, SETTING)
+    object Friend : BottomNavItem(name = "친구", icon = R.drawable.friend, FRIEND)
+    object Chatting : BottomNavItem(name = "채팅", icon = R.drawable.chatting, CHATTING)
+    object Setting : BottomNavItem(name = "설정", icon = R.drawable.setting, SETTING)
 }
 
 const val FRIEND = "FRIEND"
@@ -71,7 +71,7 @@ fun BottomNavigationView(
                 selectedContentColor = LightPurple,
                 unselectedContentColor = LighterBlack,
                 selected = currentRoute == item.route,
-                alwaysShowLabel = true,
+                alwaysShowLabel = false,
                 onClick = {
                     navController.navigate(item.route) {
                         navController.graph.id.let {
