@@ -20,6 +20,8 @@ import com.narsha.bubblechat.ui.feature.chatting.ChattingScreen
 import com.narsha.bubblechat.ui.feature.chatting.ChattingViewModel
 import com.narsha.bubblechat.ui.feature.friend.FriendScreen
 import com.narsha.bubblechat.ui.feature.friend.FriendViewModel
+import com.narsha.bubblechat.ui.feature.search_friend.SearchFriendScreen
+import com.narsha.bubblechat.ui.feature.search_friend.AddFriendViewModel
 import com.narsha.bubblechat.ui.feature.setting.SettingScreen
 import com.narsha.bubblechat.ui.feature.setting.SettingViewModel
 import com.narsha.bubblechat.ui.feature.start.StartScreen
@@ -97,6 +99,14 @@ private fun SettingDestination(navController: NavController) {
     }
 }
 
+@Composable
+private fun SearchFriendDestination(navController: NavController) {
+    val viewModel: AddFriendViewModel = hiltViewModel()
+    SearchFriendScreen(viewModel = viewModel) {
+        navController.navigate(it)
+    }
+}
+
 
 
 sealed class Route(val route: String) {
@@ -104,6 +114,5 @@ sealed class Route(val route: String) {
     object CHATTING : Route("CHATTING")
     object SETTING : Route("SETTING")
     object START : Route("START")
-    object PROFILE : Route("PROFILE")
 
 }
