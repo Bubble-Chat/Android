@@ -1,4 +1,4 @@
-package dgsw.stac.knowledgender.remote
+package com.narsha.bubblechat.remote
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitBuilder {
 
-    private const val BASE_URL = "https://1fd3-221-168-22-204.ngrok-free.app/"
+    private const val BASE_URL = "http://bc.mhaa.kr/"
 //    private val BASE_URL = "https://jsonplaceholder.typicode.com"
     private fun getRetrofit(): Retrofit {
         return Retrofit.Builder()

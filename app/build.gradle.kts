@@ -54,6 +54,9 @@ android {
 
 dependencies {
 
+    //datastore preferences
+    implementation("androidx.datastore:datastore-preferences:1.0.0")
+
     //Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
@@ -69,7 +72,8 @@ dependencies {
     //google oauth
     implementation("com.google.android.gms:play-services-auth:20.7.0")
 
-
+    //Coroutine
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
 
     //hilt
     implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
