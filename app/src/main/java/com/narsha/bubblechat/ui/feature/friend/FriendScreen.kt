@@ -1,5 +1,6 @@
 package com.narsha.bubblechat.ui.feature.friend
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -34,8 +35,8 @@ fun FriendScreen(viewModel: FriendViewModel, navigationRequsted: (String) -> Uni
         Header()
         friendList?.let {
             Body(modifier = Modifier.weight(1f), friend = it)
-        }?: kotlin.run {
-            Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center){
+        } ?: kotlin.run {
+            Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                 CircularProgressIndicator()
             }
         }
@@ -44,9 +45,11 @@ fun FriendScreen(viewModel: FriendViewModel, navigationRequsted: (String) -> Uni
 
 @Composable
 private fun Header() {
-    Row(modifier = Modifier
-        .fillMaxWidth()
-        .heightIn(60.dp)) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .heightIn(60.dp)
+    ) {
         Text(
             text = "친구",
             color = DarkestBlack,
@@ -56,12 +59,18 @@ private fun Header() {
                 fontSize = 20.sp
             )
         )
-        Icon(painter = painterResource(id = R.drawable.addfriend), contentDescription = "")
+        Icon(
+            painter = painterResource(id = R.drawable.addfriend), contentDescription = "",
+            modifier = Modifier
+                .clickable {
+
+                },
+        )
     }
 }
 
 @Composable
-private fun Body(modifier: Modifier,friend: List<FriendResponse>) {
+private fun Body(modifier: Modifier, friend: List<FriendResponse>) {
     LazyColumn(modifier = modifier) {
         items(friend) {
             FriendItem(friend = it.friend)

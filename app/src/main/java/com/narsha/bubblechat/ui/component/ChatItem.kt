@@ -27,7 +27,7 @@ import com.narsha.bubblechat.ui.theme.pretendard
 import dgsw.proj.bubblechat.R
 
 @Composable
-fun FriendItem(friend: Friend) {
+fun ChatItem(friend: Friend) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
