@@ -1,6 +1,7 @@
 package com.narsha.bubblechat.remote
 
-import com.narsha.bubblechat.ui.feature.friend.GetUserInfoResponse
+import com.narsha.bubblechat.ui.feature.friend.FriendResponseList
+import com.narsha.bubblechat.ui.feature.setting.GetUserInfoResponse
 import com.narsha.bubblechat.ui.feature.start.LoginRequest
 import com.narsha.bubblechat.ui.feature.start.LoginResponse
 import retrofit2.http.Body
@@ -16,5 +17,5 @@ interface RetrofitService {
     suspend fun getUserInfo(@Header("Authorization")token: String): GetUserInfoResponse
 
     @GET("api/v1/friend/list")
-    suspend fun getFriendList(@Header("Authorization")token: String)
+    suspend fun getFriendList(@Header("Authorization")token: String): FriendResponseList
 }
